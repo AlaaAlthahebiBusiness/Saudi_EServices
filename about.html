@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>من نحن - منصة خدمات إلكترونية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main>
+        <h2>من نحن</h2>
+        <p>نحن منصة متخصصة في تقديم الخدمات الحكومية الإلكترونية داخل المملكة العربية السعودية، بخبرة وموثوقية.</p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
+        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
