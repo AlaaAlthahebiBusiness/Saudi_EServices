@@ -1,23 +1,1052 @@
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>الرئيسية - منصة خدمات إلكترونية</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مكتب علاء الذاهبي للخدمات الإلكترونية - تجربة رقمية لا تُنسى</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --glass-bg: rgba(255, 255, 255, 0.98);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --shadow-heavy: 0 20px 60px rgba(31, 38, 135, 0.5);
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Cairo', 'Tajawal', sans-serif; 
+      direction: rtl; 
+      background: var(--gradient-bg);
+      min-height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* خلفية متحركة */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+      animation: backgroundMove 20s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes backgroundMove {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    /* شريط التنقل المحسن */
+    nav {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-light);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav:hover {
+      background: rgba(255, 255, 255, 0.99);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .brand-logo {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+      animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
+      50% { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.8)); }
+    }
+
+    nav ul li a {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::before {
+      width: 100%;
+    }
+
+    /* القسم الرئيسي المحسن */
+    .hero-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 4rem;
+      margin: 3rem 0;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-section h1 {
+      color: var(--text-primary);
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes textGlow {
+      from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3)); }
+      to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
+    }
+
+    .hero-section h2 {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gradient-primary);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 1s forwards;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+      color: white;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .hero-cta:hover::before {
+      left: 100%;
+    }
+
+    /* بطاقات الخدمات المطورة */
+    .services-container {
+      margin: 4rem 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      perspective: 1000px;
+    }
+
+    .service-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--glass-border);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      animation: cardSlideIn 0.8s ease-out;
+    }
+
+    @keyframes cardSlideIn {
+      from { opacity: 0; transform: translateY(50px) rotateX(-20deg); }
+      to { opacity: 1; transform: translateY(0) rotateX(0deg); }
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0.2s; }
+    .service-card:nth-child(2) { animation-delay: 0.4s; }
+    .service-card:nth-child(3) { animation-delay: 0.6s; }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 25px 60px rgba(31, 38, 135, 0.4);
+      background: rgba(255, 255, 255, 0.99);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: iconFloat 3s ease-in-out infinite;
+      display: block;
+      text-align: center;
+    }
+
+    @keyframes iconFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .service-card h3 {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .service-card p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.8;
+      text-align: center;
+      font-size: 1.05rem;
+    }
+
+    /* قسم الإحصائيات */
+    .stats-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 3rem;
+      margin: 4rem 0;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid var(--glass-border);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    /* قسم الاشتراك المحسن */
+    .cta-section {
+      background: var(--gradient-primary);
+      border-radius: 25px;
+      margin: 4rem 0;
+      box-shadow: var(--shadow-heavy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: rotate 15s linear infinite reverse;
+    }
+
+    .cta-section article {
+      padding: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      color: white;
+      font-weight: 800;
+      font-size: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-section h3 {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .cta-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cta-form input {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      border-radius: 50px;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .cta-form input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cta-form button {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .cta-form button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* فوتر محسن */
+    footer {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-color);
+      transform: translateX(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .footer-bottom small {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .footer-bottom a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    }
+
+    /* استجابة للشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .hero-section h1 { font-size: 2rem; }
+      .hero-section { padding: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-form { grid-template-columns: 1fr; }
+    }
+
+    /* تأثيرات التمرير */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* نموذج التواصل المحسن */
+    .contact-form-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form {
+      width: 100%;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 2px solid rgba(102, 126, 234, 0.2) !important;
+      border-radius: 12px !important;
+      padding: 1.2rem 1.5rem !important;
+      font-size: 1rem !important;
+      color: var(--text-primary) !important;
+      font-weight: 500 !important;
+      font-family: 'Cairo', 'Tajawal', sans-serif !important;
+      transition: all 0.3s ease !important;
+      outline: none !important;
+      direction: rtl !important;
+      text-align: right !important;
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--text-secondary) !important;
+      opacity: 0.8 !important;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      background: rgba(255, 255, 255, 1) !important;
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .form-textarea {
+      resize: vertical !important;
+      min-height: 120px !important;
+      max-height: 200px !important;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: var(--gradient-primary) !important;
+      border: none !important;
+      border-radius: 50px !important;
+      padding: 1.2rem 2.5rem !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      color: white !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      margin-top: 1rem !important;
+    }
+
+    .form-submit-btn:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4) !important;
+      background: var(--gradient-secondary) !important;
+    }
+
+    .form-submit-btn:active {
+      transform: translateY(-1px) !important;
+    }
+
+    .form-submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .form-submit-btn:hover::before {
+      left: 100%;
+    }
+
+    /* زر العودة للأعلى */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    /* استجابة للشاشات الصغيرة - تحديث النموذج */
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div id="header"></div>
+<nav class="container-fluid">
+  <ul><li><a href="index.html"><strong class="brand-logo">مكتب علاء الذاهبي</strong></a></li></ul>
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+    <li><a href="services.html"><i class="fas fa-cogs"></i> خدماتنا</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+    <li><a href="contact.html" role="button"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+  </ul>
+</nav>
 
-    <main>
-        <h2>مرحبًا بك في منصتنا</h2>
-        <p>نساعدك في إنجاز معاملاتك الحكومية بسرعة واحترافية.</p>
-    </main>
+<main class="container">
+  <!-- القسم الرئيسي -->
+  <div class="hero-section">
+    <div class="grid">
+      <section>
+        <hgroup>
+          <h1>مكتب علاء الذاهبي للخدمات الإلكترونية</h1>
+          <h2>شريكك الموثوق في رحلة التحول الرقمي</h2>
+        </hgroup>
+        <p>نحن نعيد تعريف الخدمات الإلكترونية من خلال تقديم حلول مبتكرة وسريعة تواكب تطلعاتكم. خبرة تمتد لسنوات، تقنيات متطورة، وفريق متخصص يضمن لك تجربة استثنائية لا تُنسى.</p>
+        <a href="services.html" class="hero-cta">
+          <i class="fas fa-rocket"></i> اكتشف خدماتنا المتطورة
+        </a>
+      </section>
+      <div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=400&q=80" alt="خدمات إلكترونية متطورة" />
+          <figcaption><a href="https://unsplash.com" target="_blank">صورة من Unsplash</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
 
-    <div id="footer"></div>
+  <!-- قسم الإحصائيات -->
+  <div class="stats-section scroll-reveal">
+    <h2 style="text-align: center; color: var(--text-primary); font-weight: 700; margin-bottom: 2rem;">إنجازاتنا بالأرقام</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">عميل راضٍ</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">خدمة متخصصة</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">99%</span>
+        <span class="stat-label">معدل الرضا</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">24/7</span>
+        <span class="stat-label">دعم مستمر</span>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
-        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+  <!-- بطاقات الخدمات المطورة -->
+  <div class="services-container scroll-reveal">
+    <h2 style="text-align: center; color: var(--text-primary); font-weight: 700; margin-bottom: 3rem; font-size: 2.2rem;">خدماتنا المتميزة</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-university service-icon"></i>
+        <h3>الخدمات الحكومية الذكية</h3>
+        <p>نتولى جميع معاملاتك الحكومية بكفاءة عالية عبر منصة أبشر ووزارة العدل والصحة والتعليم. من إصدار الهويات وتجديد الرخص إلى حجز المواعيد والحصول على الوثائق الرسمية - كل شيء بنقرة واحدة.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-graduation-cap service-icon"></i>
+        <h3>الحلول التعليمية المتكاملة</h3>
+        <p>ندعم رحلتك الأكاديمية من التسجيل في الجامعات إلى كتابة السير الذاتية المتميزة. نقدم خدمات شاملة تشمل إعداد البحوث الأكاديمية، التقديم على المنح الدراسية، وطباعة الشهادات بأعلى معايير الجودة.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-language service-icon"></i>
+        <h3>الترجمة والتوثيق الاحترافي</h3>
+        <p>خدمات ترجمة معتمدة بأكثر من 15 لغة مع توثيق رسمي للوثائق القانونية والطبية والأكاديمية. فريقنا من المترجمين المعتمدين يضمن دقة التعبير والامتثال للمعايير الدولية.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- قسم التواصل المطور -->
+<section aria-label="التواصل" class="cta-section">
+  <div class="container">
+    <article>
+      <hgroup style="text-align: center;">
+        <h2><i class="fas fa-envelope"></i> تواصل معنا الآن</h2>
+        <h3>نحن هنا لخدمتكم وتقديم أفضل الخدمات الإلكترونية</h3>
+      </hgroup>
+      
+      <div class="contact-form-container">
+        <form onsubmit="handleContactForm(event)" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" placeholder="الاسم الكامل *" required class="form-input" />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="البريد الإلكتروني *" required class="form-input" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="tel" placeholder="رقم الهاتف" class="form-input" />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="الموضوع *" required class="form-input" />
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="تفاصيل الاستفسار أو الخدمة المطلوبة *" rows="5" required class="form-textarea"></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn">
+            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+          </button>
+        </form>
+      </div>
+    </article>
+  </div>
+</section>
+
+<footer class="container">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4><i class="fas fa-info-circle"></i> عن المكتب</h4>
+      <p>مكتب علاء الذاهبي للخدمات الإلكترونية</p>
+      <a href="about.html">من نحن</a>
+      <a href="services.html">خدماتنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-phone"></i> التواصل</h4>
+      <p><i class="fas fa-mobile-alt"></i> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+      <a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>
+      <strong>جميع الحقوق محفوظة © <span id="current-year"></span> - مكتب علاء الذاهبي للخدمات الإلكترونية</strong>
+    </small>
+  </div>
+</footer>
+
+<!-- زر العودة للأعلى -->
+<button class="back-to-top" onclick="scrollToTop()">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+// تأثيرات التمرير
+function handleScrollAnimations() {
+  const reveals = document.querySelectorAll('.scroll-reveal');
+  const windowHeight = window.innerHeight;
+  
+  reveals.forEach(reveal => {
+    const elementTop = reveal.getBoundingClientRect().top;
+    const elementVisible = 150;
+    
+    if (elementTop < windowHeight - elementVisible) {
+      reveal.classList.add('revealed');
+    }
+  });
+}
+
+// زر العودة للأعلى
+function toggleBackToTop() {
+  const backToTop = document.querySelector('.back-to-top');
+  if (window.pageYOffset > 300) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+// معالج نموذج التواصل
+async function handleContactForm(event) {
+  event.preventDefault();
+  const button = event.target.querySelector('button');
+  const originalText = button.innerHTML;
+  
+  // جمع بيانات النموذج
+  const formData = new FormData(event.target);
+  const data = {
+    name: formData.get('name') || event.target.querySelector('input[placeholder*="الاسم"]').value,
+    email: formData.get('email') || event.target.querySelector('input[placeholder*="البريد"]').value,
+    phone: formData.get('phone') || event.target.querySelector('input[placeholder*="الهاتف"]').value,
+    subject: formData.get('subject') || event.target.querySelector('input[placeholder*="الموضوع"]').value,
+    message: formData.get('message') || event.target.querySelector('textarea').value
+  };
+  
+  // التحقق من صحة البيانات
+  if (!data.name || !data.email || !data.subject || !data.message) {
+    alert('يرجى ملء جميع الحقول المطلوبة');
+    return;
+  }
+  
+  button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+  button.disabled = true;
+  
+  try {
+    const response = await fetch('/send-contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      button.innerHTML = '<i class="fas fa-check"></i> تم إرسال الرسالة بنجاح!';
+      button.style.background = 'rgba(46, 204, 113, 0.8)';
+      
+      setTimeout(() => {
+        button.innerHTML = originalText;
+        button.disabled = false;
+        button.style.background = '';
+        event.target.reset();
+      }, 3000);
+      
+      // إظهار رسالة نجاح
+      showNotification('تم إرسال الرسالة بنجاح! سنتواصل معك قريباً.', 'success');
+      
+    } else {
+      throw new Error(result.message);
+    }
+    
+  } catch (error) {
+    console.error('خطأ في إرسال الرسالة:', error);
+    button.innerHTML = '<i class="fas fa-exclamation-triangle"></i> فشل الإرسال';
+    button.style.background = 'rgba(231, 76, 60, 0.8)';
+    
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.disabled = false;
+      button.style.background = '';
+    }, 3000);
+    
+    // إظهار رسالة خطأ
+    showNotification('حدث خطأ أثناء إرسال الرسالة. حاول مرة أخرى.', 'error');
+  }
+}
+
+// دالة إظهار الإشعارات
+function showNotification(message, type) {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${type === 'success' ? '#2ecc71' : '#e74c3c'};
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    max-width: 300px;
+    direction: rtl;
+    text-align: right;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+  `;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  // تحريك الإشعار للداخل
+  setTimeout(() => {
+    notification.style.transform = 'translateX(0)';
+  }, 100);
+  
+  // إزالة الإشعار بعد 5 ثوانٍ
+  setTimeout(() => {
+    notification.style.transform = 'translateX(400px)';
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  }, 5000);
+}
+
+// تحديث السنة الحالية
+function updateCurrentYear() {
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+}
+
+// تحريك العناصر عند تحريك الماوس
+document.addEventListener('mousemove', (e) => {
+  const cards = document.querySelectorAll('.service-card');
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = e.clientY / window.innerHeight;
+  
+  cards.forEach((card, index) => {
+    const xRotation = (mouseY - 0.5) * 10;
+    const yRotation = (mouseX - 0.5) * 10;
+    
+    card.style.transform = `perspective(1000px) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+  });
+});
+
+// إعادة تعيين البطاقات عند الخروج
+document.addEventListener('mouseleave', () => {
+  const cards = document.querySelectorAll('.service-card');
+  cards.forEach(card => {
+    card.style.transform = '';
+  });
+});
+
+// استمع لأحداث التمرير
+window.addEventListener('scroll', () => {
+  handleScrollAnimations();
+  toggleBackToTop();
+});
+
+// تشغيل الرسوم المتحركة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+  handleScrollAnimations();
+  updateCurrentYear();
+  
+  // تأثير كتابة النص
+  const heroTitle = document.querySelector('.hero-section h1');
+  const heroSubtitle = document.querySelector('.hero-section h2');
+  
+  if (heroTitle && heroSubtitle) {
+    heroTitle.style.opacity = '0';
+    heroSubtitle.style.opacity = '0';
+    
+    setTimeout(() => {
+      heroTitle.style.opacity = '1';
+      heroTitle.style.animation = 'fadeInUp 1s ease-out forwards';
+    }, 300);
+    
+    setTimeout(() => {
+      heroSubtitle.style.opacity = '1';
+      heroSubtitle.style.animation = 'fadeInUp 1s ease-out forwards';
+    }, 800);
+  }
+});
+
+// تأثير الكتابة المتحركة للإحصائيات
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  
+  counters.forEach(counter => {
+    const target = parseInt(counter.textContent);
+    const increment = target / 100;
+    let current = 0;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
+        clearInterval(timer);
+      } else {
+        counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
+      }
+    }, 20);
+  });
+}
+
+// تشغيل عداد الإحصائيات عند ظهورها
+const statsSection = document.querySelector('.stats-section');
+let statsAnimated = false;
+
+window.addEventListener('scroll', () => {
+  if (!statsAnimated && statsSection.getBoundingClientRect().top < window.innerHeight) {
+    animateCounters();
+    statsAnimated = true;
+  }
+});
+</script>
 </body>
 </html>
