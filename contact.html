@@ -1,29 +1,519 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>تواصل معنا - منصة خدمات إلكترونية</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تواصل معنا - مكتب علاء الذاهبي للخدمات الإلكترونية</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --glass-bg: rgba(255, 255, 255, 0.98);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --shadow-heavy: 0 20px 60px rgba(31, 38, 135, 0.5);
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Cairo', 'Tajawal', sans-serif; 
+      direction: rtl; 
+      background: var(--gradient-bg);
+      min-height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+      animation: backgroundMove 20s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes backgroundMove {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    nav {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-light);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav:hover {
+      background: rgba(255, 255, 255, 0.99);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .brand-logo {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+      animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
+      50% { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.8)); }
+    }
+
+    nav ul li a {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::before {
+      width: 100%;
+    }
+
+    main { 
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 4rem;
+      margin: 3rem auto;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1, h2, h3, p { text-align: right; }
+
+    main h2 {
+      color: var(--text-primary);
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes textGlow {
+      from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3)); }
+      to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
+    }
+
+    main > section > p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border-right: 5px solid var(--primary-color);
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info:hover::before {
+      transform: scaleX(1);
+    }
+
+    .contact-info:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-heavy);
+      background: rgba(255, 255, 255, 0.99);
+    }
+
+    .contact-info h3 {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      margin: 1.2rem 0;
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .contact-info p:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    article {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    article:hover {
+      box-shadow: var(--shadow-heavy);
+    }
+
+    article h3 {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    article p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* إصلاح النموذج الشفاف */
+    form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    form input, form textarea {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 2px solid rgba(102, 126, 234, 0.3) !important;
+      border-radius: 10px !important;
+      padding: 1rem 1.5rem !important;
+      font-size: 1rem !important;
+      color: var(--text-primary) !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+      margin-bottom: 1rem !important;
+    }
+
+    form input:focus, form textarea:focus {
+      background: rgba(255, 255, 255, 1) !important;
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+      outline: none !important;
+    }
+
+    form input::placeholder, form textarea::placeholder {
+      color: var(--text-secondary) !important;
+      opacity: 0.8 !important;
+    }
+
+    form button {
+      background: var(--gradient-primary) !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 50px !important;
+      padding: 1rem 2.5rem !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4) !important;
+    }
+
+    form button:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6) !important;
+    }
+
+    figure {
+      text-align: center;
+    }
+
+    figure img {
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+
+    figure img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-color);
+      transform: translateX(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .footer-bottom small {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .footer-bottom a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 2rem; }
+      main h2 { font-size: 2rem; }
+      .footer-content { grid-template-columns: 1fr; }
+      form { padding: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <div id="header"></div>
+<nav class="container-fluid">
+  <ul><li><a href="index.html"><strong class="brand-logo">مكتب علاء الذاهبي</strong></a></li></ul>
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+    <li><a href="services.html"><i class="fas fa-cogs"></i> خدماتنا</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+    <li><a href="contact.html" role="button"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+  </ul>
+</nav>
 
-    <main>
-        <h2>تواصل معنا</h2>
-        <p>راسلنا عبر الروابط التالية:</p>
-        <ul>
-            <li><a href="https://t.me/Saudi_EServicesBot">بوت التليجرام</a></li>
-            <li><a href="https://t.me/Saudi_EServices">قناة التليجرام</a></li>
-            <li><a href="https://twitter.com/Saudi_EService">تويتر</a></li>
-            <li><a href="https://www.instagram.com/saudi_eservices">إنستغرام</a></li>
-        </ul>
-    </main>
+<main class="container">
+  <section>
+    <h2>تواصل معنا</h2>
+    <p>نحن هنا لخدمتكم على مدار الساعة وللإجابة على جميع استفساراتكم وتقديم أفضل الخدمات الإلكترونية.</p>
 
-    <div id="footer"></div>
+    <div class="grid">
+      <div class="contact-info">
+        <h3>📞 معلومات التواصل</h3>
+        <p><strong>📱 الهاتف:</strong> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
+        <p><strong>📧 البريد الإلكتروني:</strong> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
+        <p><strong>🏢 العنوان:</strong> الرياض، المملكة العربية السعودية</p>
+        <p><strong>🕐 ساعات العمل:</strong> الأحد - الخميس: 8:00 ص - 8:00 م</p>
+        <p><strong>💬 واتساب:</strong> <a href="https://wa.me/966564927083" target="_blank" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
+        <p><strong>🌐 الموقع الإلكتروني:</strong> www.alaaservices.com</p>
+      </div>
+      <div>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=80" alt="تواصل معنا" />
+          <figcaption><a href="https://unsplash.com" target="_blank">صورة من Unsplash</a></figcaption>
+        </figure>
+      </div>
+    </div>
 
-    <script>
-        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
-        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+    <article>
+      <h3>📝 أرسل لنا رسالة</h3>
+      <p>يمكنكم التواصل معنا مباشرة من خلال النموذج التالي وسنقوم بالرد عليكم في أقرب وقت ممكن</p>
+      <form onsubmit="handleContactForm(event)">
+        <div class="grid">
+          <input type="text" name="name" placeholder="الاسم الكامل *" required />
+          <input type="email" name="email" placeholder="البريد الإلكتروني *" required />
+        </div>
+        <div class="grid">
+          <input type="tel" name="phone" placeholder="رقم الهاتف" />
+          <input type="text" name="subject" placeholder="الموضوع *" required />
+        </div>
+        <textarea name="message" placeholder="تفاصيل الاستفسار أو الخدمة المطلوبة *" rows="5" required></textarea>
+        <button type="submit">إرسال الرسالة 📤</button>
+      </form>
+    </article>
+  </section>
+</main>
+
+<footer class="container">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4><i class="fas fa-info-circle"></i> عن المكتب</h4>
+      <p>مكتب علاء الذاهبي للخدمات الإلكترونية</p>
+      <a href="about.html">من نحن</a>
+      <a href="services.html">خدماتنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-phone"></i> التواصل</h4>
+      <p><i class="fas fa-mobile-alt"></i> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+      <a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>
+      <strong>جميع الحقوق محفوظة © <span id="current-year"></span> - مكتب علاء الذاهبي للخدمات الإلكترونية</strong>
+    </small>
+  </div>
+</footer>
+
+<script>
+// تحديث السنة الحالية
+document.addEventListener('DOMContentLoaded', () => {
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+});
+
+async function handleContactForm(event) {
+  event.preventDefault();
+
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      alert('تم إرسال رسالتك بنجاح!');
+      form.reset(); // Clear the form
+    } else {
+      const errorData = await response.json();
+      alert(`حدث خطأ أثناء إرسال الرسالة: ${errorData.message || 'Unknown error'}`);
+    }
+  } catch (error) {
+    console.error('Network error:', error);
+    alert('حدث خطأ في الشبكة. يرجى المحاولة مرة أخرى.');
+  }
+}
+</script>
 </body>
 </html>
