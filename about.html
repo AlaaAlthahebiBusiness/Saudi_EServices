@@ -1,23 +1,408 @@
+
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>من نحن - منصة خدمات إلكترونية</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>من نحن - مكتب علاء الذاهبي للخدمات الإلكترونية</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --glass-bg: rgba(255, 255, 255, 0.98);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --shadow-heavy: 0 20px 60px rgba(31, 38, 135, 0.5);
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Cairo', 'Tajawal', sans-serif; 
+      direction: rtl; 
+      background: var(--gradient-bg);
+      min-height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+      animation: backgroundMove 20s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes backgroundMove {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    nav {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-light);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav:hover {
+      background: rgba(255, 255, 255, 0.99);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .brand-logo {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+      animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
+      50% { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.8)); }
+    }
+
+    nav ul li a {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::before {
+      width: 100%;
+    }
+
+    main { 
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 4rem;
+      margin: 3rem auto;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1, h2, h3, p { text-align: right; }
+    
+    main h2 {
+      color: var(--text-primary);
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes textGlow {
+      from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3)); }
+      to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
+    }
+
+    main > section > p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .vision-mission {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      border-right: 5px solid var(--primary-color);
+      box-shadow: var(--shadow-light);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-mission::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .vision-mission:hover::before {
+      transform: scaleX(1);
+    }
+
+    .vision-mission:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-heavy);
+      background: rgba(255, 255, 255, 0.99);
+    }
+
+    .vision-mission h3 {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .vision-mission p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .vision-mission ul li {
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin: 1rem 0;
+      padding: 0.8rem;
+      background: rgba(102, 126, 234, 0.05);
+      border-radius: 10px;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+    }
+
+    .vision-mission ul li:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateX(-5px);
+    }
+
+    figure {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    figure img {
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+
+    figure img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-color);
+      transform: translateX(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .footer-bottom small {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .footer-bottom a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 2rem; }
+      main h2 { font-size: 2rem; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div id="header"></div>
+<nav class="container-fluid">
+  <ul><li><a href="index.html"><strong class="brand-logo">مكتب علاء الذاهبي</strong></a></li></ul>
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+    <li><a href="services.html"><i class="fas fa-cogs"></i> خدماتنا</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+    <li><a href="contact.html" role="button"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+  </ul>
+</nav>
 
-    <main>
-        <h2>من نحن</h2>
-        <p>نحن منصة متخصصة في تقديم الخدمات الحكومية الإلكترونية داخل المملكة العربية السعودية، بخبرة وموثوقية.</p>
-    </main>
+<main class="container">
+  <section>
+    <h2>من نحن</h2>
+    <p>مكتب علاء الذاهبي للخدمات الإلكترونية هو مكتب رائد ومتخصص في تقديم الخدمات الحكومية الرقمية والطلابية والترجمة المعتمدة باستخدام أحدث التقنيات وأعلى معايير الجودة والاحترافية.</p>
+    
+    <div class="vision-mission">
+      <h3>🎯 رؤيتنا</h3>
+      <p>أن نكون الخيار الأول والمرجع الموثوق للعملاء في الحصول على خدمات إلكترونية متطورة وسريعة وآمنة.</p>
+    </div>
+    
+    <div class="vision-mission">
+      <h3>🚀 مهمتنا</h3>
+      <p>تسهيل وتبسيط إجراءات العملاء الرقمية وتوفير الوقت والجهد من خلال فريق متخصص ومدرب على أحدث التقنيات والأساليب الحديثة.</p>
+    </div>
 
-    <div id="footer"></div>
+    <div class="vision-mission">
+      <h3>⭐ قيمنا</h3>
+      <ul>
+        <li>الجودة والإتقان في تقديم الخدمات</li>
+        <li>السرعة والدقة في الإنجاز</li>
+        <li>السرية والأمان في التعامل مع البيانات</li>
+        <li>الشفافية والوضوح في التعامل</li>
+      </ul>
+    </div>
 
-    <script>
-        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
-        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+    <figure>
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=80" alt="فريق العمل المتخصص" />
+      <figcaption><a href="https://unsplash.com" target="_blank">صورة من Unsplash</a></figcaption>
+    </figure>
+  </section>
+</main>
+
+<footer class="container">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4><i class="fas fa-info-circle"></i> عن المكتب</h4>
+      <p>مكتب علاء الذاهبي للخدمات الإلكترونية</p>
+      <a href="about.html">من نحن</a>
+      <a href="services.html">خدماتنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-phone"></i> التواصل</h4>
+      <p><i class="fas fa-mobile-alt"></i> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+      <a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <small>
+      <strong>جميع الحقوق محفوظة © <span id="current-year"></span> - مكتب علاء الذاهبي للخدمات الإلكترونية</strong>
+    </small>
+  </div>
+</footer>
+
+<script>
+// تحديث السنة الحالية
+document.addEventListener('DOMContentLoaded', () => {
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+});
+</script>
 </body>
 </html>
