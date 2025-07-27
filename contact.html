@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تواصل معنا - منصة خدمات إلكترونية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header"></div>
+
+    <main>
+        <h2>تواصل معنا</h2>
+        <p>راسلنا عبر الروابط التالية:</p>
+        <ul>
+            <li><a href="https://t.me/Saudi_EServicesBot">بوت التليجرام</a></li>
+            <li><a href="https://t.me/Saudi_EServices">قناة التليجرام</a></li>
+            <li><a href="https://twitter.com/Saudi_EService">تويتر</a></li>
+            <li><a href="https://www.instagram.com/saudi_eservices">إنستغرام</a></li>
+        </ul>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
+        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
+    </script>
+</body>
+</html>
