@@ -139,7 +139,7 @@ h1, h2, h3, p {
   text-align: right;
 }
 
-main h2 {
+main h2,h1 {
   color: var(--text-primary);
   font-weight: 900;
   font-size: 2.5rem;
@@ -157,6 +157,172 @@ main h2 {
   from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3)); }
   to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
 }
+
+  main > section > p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-info {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border-right: 5px solid var(--primary-color);
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info:hover::before {
+      transform: scaleX(1);
+    }
+
+    .contact-info:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-heavy);
+      background: rgba(255, 255, 255, 0.99);
+    }
+
+    .contact-info h3 {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      margin: 1.2rem 0;
+      padding: 1.2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+    }
+
+    .contact-info p:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    article {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-light);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    article:hover {
+      box-shadow: var(--shadow-heavy);
+    }
+
+    article h3 {
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    article p {
+      color: var(--text-secondary);
+      font-weight: 500;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* إصلاح النموذج الشفاف */
+    form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    form input, form textarea {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 2px solid rgba(102, 126, 234, 0.3) !important;
+      border-radius: 10px !important;
+      padding: 1rem 1.5rem !important;
+      font-size: 1rem !important;
+      color: var(--text-primary) !important;
+      font-weight: 500 !important;
+      transition: all 0.3s ease !important;
+      margin-bottom: 1rem !important;
+    }
+
+    form input:focus, form textarea:focus {
+      background: rgba(255, 255, 255, 1) !important;
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+      outline: none !important;
+    }
+
+    form input::placeholder, form textarea::placeholder {
+      color: var(--text-secondary) !important;
+      opacity: 0.8 !important;
+    }
+
+    form button {
+      background: var(--gradient-primary) !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 50px !important;
+      padding: 1rem 2.5rem !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4) !important;
+    }
+
+    form button:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6) !important;
+    }
+
+    figure {
+      text-align: center;
+    }
+
+    figure img {
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+
+    figure img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-heavy);
+    }
+
+
+
+
 
 footer {
   margin-top: 4rem;
@@ -223,4 +389,31 @@ footer {
   main { padding: 2rem; }
   main h2 { font-size: 2rem; }
   .footer-content { grid-template-columns: 1fr; }
+        form { padding: 1.5rem; }
+
 }
+
+
+
+ .section-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      margin: 1.5rem 0;
+      border-right: 5px solid #4e73df;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+    }
+    .section-card h2 {
+      color: #2d3748;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .section-card p, .section-card li {
+      color: #4a5568;
+      font-weight: 500;
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+  
