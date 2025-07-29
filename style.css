@@ -394,3 +394,308 @@ footer {
 }
 
 
+
+
+    /* قسم الاشتراك المحسن */
+    .cta-section {
+      background: var(--gradient-primary);
+      border-radius: 25px;
+      margin: 4rem 0;
+      box-shadow: var(--shadow-heavy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      animation: rotate 15s linear infinite reverse;
+    }
+
+    .cta-section article {
+      padding: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-section h2 {
+      color: white;
+      font-weight: 800;
+      font-size: 2rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-section h3 {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    .cta-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cta-form input {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      border-radius: 50px;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .cta-form input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cta-form button {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .cta-form button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* فوتر محسن */
+    footer {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-color);
+      transform: translateX(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .footer-bottom small {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .footer-bottom a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    }
+
+    /* استجابة للشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .hero-section h1 { font-size: 2rem; }
+      .hero-section { padding: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-form { grid-template-columns: 1fr; }
+    }
+
+    /* تأثيرات التمرير */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .scroll-reveal.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* نموذج التواصل المحسن */
+    .contact-form-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-form {
+      width: 100%;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      position: relative;
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9) !important;
+      border: 2px solid rgba(102, 126, 234, 0.2) !important;
+      border-radius: 12px !important;
+      padding: 1.2rem 1.5rem !important;
+      font-size: 1rem !important;
+      color: var(--text-primary) !important;
+      font-weight: 500 !important;
+      font-family: 'Cairo', 'Tajawal', sans-serif !important;
+      transition: all 0.3s ease !important;
+      outline: none !important;
+      direction: rtl !important;
+      text-align: right !important;
+    }
+
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--text-secondary) !important;
+      opacity: 0.8 !important;
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      background: rgba(255, 255, 255, 1) !important;
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1) !important;
+      transform: translateY(-2px) !important;
+    }
+
+    .form-textarea {
+      resize: vertical !important;
+      min-height: 120px !important;
+      max-height: 200px !important;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      background: var(--gradient-primary) !important;
+      border: none !important;
+      border-radius: 50px !important;
+      padding: 1.2rem 2.5rem !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      color: white !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+      position: relative !important;
+      overflow: hidden !important;
+      margin-top: 1rem !important;
+    }
+
+    .form-submit-btn:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4) !important;
+      background: var(--gradient-secondary) !important;
+    }
+
+    .form-submit-btn:active {
+      transform: translateY(-1px) !important;
+    }
+
+    .form-submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .form-submit-btn:hover::before {
+      left: 100%;
+    }
+
+    /* زر العودة للأعلى */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1000;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    /* استجابة للشاشات الصغيرة - تحديث النموذج */
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      
+      .contact-form-container {
+        padding: 1.5rem;
+      }
+    }
