@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
   <style>
     :root {
       --primary-color: #667eea;
@@ -398,17 +400,7 @@
   </style>
 </head>
 <body>
-  <!--
-<nav class="container-fluid">
-  <ul><li><a href="index.html"><strong class="brand-logo">مكتب علاء الذاهبي</strong></a></li></ul>
-  <ul>
-    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-    <li><a href="services.html"><i class="fas fa-cogs"></i> خدماتنا</a></li>
-    <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
-    <li><a href="contact.html" role="button"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
-  </ul>
-</nav>
--->
+
   <div id="header"></div>
   
 <main class="container">
@@ -428,7 +420,7 @@
       </div>
       <div>
         <figure>
-          <img src="https://images.unsplash.com/photo-1560305527-51dc8ad5a8f8?q=80&w=1257&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" auto=format&fit=crop&w=500&q=80" alt=" للتواصل معنا" />
+          <img src="https://unsplash.com/photos/a-person-using-a-cell-phone-while-sitting-in-front-of-a-laptop-3S0MT4pMgOE auto=format&fit=crop&w=500&q=80" alt=" للتواصل معنا" />
        <figcaption><a  href="about.html" target="_blank"> اتصل بنا الآن </a></figcaption> 
         </figure>
       </div>
@@ -455,44 +447,7 @@
 
   <div id="footer"></div>
 
-  <!--
-<footer class="container">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h4><i class="fas fa-info-circle"></i> عن المكتب</h4>
-      <p>مكتب علاء الذاهبي للخدمات الإلكترونية</p>
-      <a href="about.html">من نحن</a>
-      <a href="services.html">خدماتنا</a>
-    </div>
-    <div class="footer-section">
-      <h4><i class="fas fa-phone"></i> التواصل</h4>
-      <p><i class="fas fa-mobile-alt"></i> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
-      <a href="contact.html">تواصل معنا</a>
-    </div>
-    <div class="footer-section">
-      <h4><i class="fas fa-link"></i> روابط مهمة</h4>
-      <a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
-      <a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <small>
-      <strong>جميع الحقوق محفوظة © <span id="current-year"></span> - مكتب علاء الذاهبي للخدمات الإلكترونية</strong>
-    </small>
-  </div>
-</footer>
-
-  -->
-
 <script>
-// تحديث السنة الحالية
-document.addEventListener('DOMContentLoaded', () => {
-  const yearElement = document.getElementById('current-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-});
 
 async function handleContactForm(event) {
   event.preventDefault();
