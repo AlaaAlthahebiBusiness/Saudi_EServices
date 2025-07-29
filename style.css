@@ -394,26 +394,3 @@ footer {
 }
 
 
-
- .section-card {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-      padding: 2rem;
-      border-radius: 15px;
-      margin: 1.5rem 0;
-      border-right: 5px solid #4e73df;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(78, 115, 223, 0.1);
-    }
-    .section-card h2 {
-      color: #2d3748;
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-    .section-card p, .section-card li {
-      color: #4a5568;
-      font-weight: 500;
-      line-height: 1.7;
-      margin-bottom: 0.8rem;
-    }
-  
