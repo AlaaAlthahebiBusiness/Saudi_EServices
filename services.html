@@ -1,28 +1,695 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>خدماتنا - منصة خدمات إلكترونية</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خدماتنا - مكتب علاء الذاهبي للخدمات الإلكترونية</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --accent-color: #f093fb;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --glass-bg: rgba(255, 255, 255, 0.98);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
+      --shadow-heavy: 0 20px 60px rgba(31, 38, 135, 0.5);
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: 'Cairo', 'Tajawal', sans-serif; 
+      direction: rtl; 
+      background: var(--gradient-bg);
+      min-height: 100vh;
+      background-attachment: fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+      animation: backgroundMove 20s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes backgroundMove {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.1); }
+    }
+
+    nav {
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow-light);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav:hover {
+      background: rgba(255, 255, 255, 0.99);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .brand-logo {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      font-size: 1.4rem;
+      animation: logoGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
+      50% { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.8)); }
+    }
+
+    nav ul li a {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::before {
+      width: 100%;
+    }
+
+    main { 
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 4rem;
+      margin: 3rem auto;
+      box-shadow: var(--shadow-heavy);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1, h2, h3, p { text-align: right; }
+
+    h1 {
+      color: var(--text-primary);
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      animation: textGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes textGlow {
+      from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3)); }
+      to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
+    }
+
+    .intro-text {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 3rem;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+
+    .service-category {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      border-right: 5px solid var(--primary-color);
+      box-shadow: var(--shadow-light);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(78, 115, 223, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-category:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-category:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-heavy);
+      background: rgba(255, 255, 255, 0.99);
+    }
+
+    .service-category h3 {
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.8rem;
+    }
+
+    .service-category ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .service-category ul li {
+      margin: 1rem 0;
+      padding: 1rem 1.2rem;
+      background: rgba(102, 126, 234, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+      list-style: none;
+      position: relative;
+      transition: all 0.3s ease;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+
+    .service-category ul li:hover {
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateX(-8px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-category ul li:before {
+      content: "✓";
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-left: 10px;
+      font-size: 1.2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 2rem;
+    }
+
+    figure {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    figure img {
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+    }
+
+    figure img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-heavy);
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: var(--shadow-light);
+      border: 1px solid var(--glass-border);
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      color: var(--text-primary);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: var(--text-secondary);
+      font-weight: 500;
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-color);
+      transform: translateX(-5px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    .footer-bottom small {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .footer-bottom a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--secondary-color);
+      text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 2rem; }
+      h1 { font-size: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <div id="header"></div>
+<nav class="container-fluid">
+  <ul><li><a href="index.html"><strong class="brand-logo">مكتب علاء الذاهبي</strong></a></li></ul>
+  <ul>
+    <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+    <li><a href="services.html"><i class="fas fa-cogs"></i> خدماتنا</a></li>
+    <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+    <li><a href="contact.html" role="button"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+  </ul>
+</nav>
 
-    <main>
-        <h2>خدماتنا الإلكترونية</h2>
+<main class="container">
+  <section>
+    <h1>جميع خدماتنا الإلكترونية الشاملة</h1>
+    <p class="intro-text">نُقدم مجموعة شاملة ومتطورة من الخدمات الإلكترونية المتخصصة لجميع الجهات الحكومية والخاصة</p>
+
+    <div class="services-grid">
+      <div class="service-category">
+        <h3>🏛️ منصة أبشر</h3>
         <ul>
-            <li>تمديد تأشيرة الزيارة</li>
-            <li>رفع دعوى عمالية</li>
-            <li>توثيق عقد العمل</li>
-            <li>تعديل بيانات التأمينات</li>
+          <li>استعادة كلمة المرور في كل المنصات</li>
+          <li>حجز المواعيد</li>
+          <li>إصدار وتجديد الهوية الوطنية</li>
+          <li>إصدار سجل الأسرة (للآباء)</li>
+          <li>إصدار شهادة الوفاة</li>
+          <li>التسجيل في أبشر والتفعيل</li>
+          <li>الإبلاغ عن سرقة مركبة أو لوحة</li>
+          <li>إصدار وتجديد رخصة القيادة</li>
+          <li>طلب لوحة بدل فاقد</li>
+          <li>التفويض الإلكتروني</li>
+          <li>بياناتي</li>
+          <li>تواصل (الأحوال المدنية + الجوازات)</li>
+          <li>طلب هوية بدل مفقود</li>
+          <li>الاستعلام عن المخالفات المرورية</li>
+          <li>تحديث معلومات جواز سفر للمقيمين</li>
+          <li>إصدار وتجديد تأشيرات الخروج والعودة والإقامات</li>
+          <li>الاستعلام عن تقرير مقيم</li>
+          <li>الاستعلام عن معلومات سجل السفر</li>
+          <li>تبليغ تغيب عن العمل للعمالة المنزلية</li>
+          <li>الاستعلام عن تقارير أبشر</li>
+          <li>تقرير شهادة خلو سوابق</li>
+          <li>طلب تملك العقار لغير السعوديين</li>
+          <li>خدمة قبول</li>
+          <li>تمديد تأشيرة الزيارة</li>
+          <li>طلب توصيل الوثائق</li>
+          <li>اشتراك أبشر أعمال</li>
         </ul>
-    </main>
+      </div>
 
-    <div id="footer"></div>
+      <div class="service-category">
+        <h3>🏥 وزارة الصحة</h3>
+        <ul>
+          <li>حجز المواعيد في المراكز الصحية والمستشفيات</li>
+          <li>الاستعلام عن نتائج الفحوصات الطبية</li>
+          <li>الحصول على تقارير طبية</li>
+          <li>طباعة الإجازات المرضية</li>
+        </ul>
+      </div>
 
-    <script>
-        fetch('header.html').then(res => res.text()).then(data => document.getElementById('header').innerHTML = data);
-        fetch('footer.html').then(res => res.text()).then(data => document.getElementById('footer').innerHTML = data);
-    </script>
+      <div class="service-category">
+        <h3>🎓 وزارة التعليم</h3>
+        <ul>
+          <li>تسجيل الطلاب في المدارس</li>
+          <li>الاستعلام عن نتائج الامتحانات</li>
+          <li>تحديث بيانات الطلبة</li>
+          <li>التسجيل في الجامعات والكليات والمعاهد</li>
+          <li>طباعة الشهادات</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>⚖️ وزارة العدل</h3>
+        <ul>
+          <li>تقديم طلبات التقاضي وصحائف الدعوى</li>
+          <li>الاستعلام عن القضايا</li>
+          <li>الاستعلام على الصكوك العقارية</li>
+          <li>إصدار وتحديث الصكوك العقارية</li>
+          <li>تقديم طلبات التنفيذ</li>
+          <li>إصدار الوكالات الفردية والمتعددة</li>
+          <li>توثيق الزواج</li>
+          <li>توثيق الطلاق</li>
+          <li>حصر الورثة</li>
+          <li>التبليغ العدلي</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🏢 وزارة التجارة والمركز السعودي للأعمال</h3>
+        <ul>
+          <li>فتح سجلات المؤسسات</li>
+          <li>فتح سجلات الشركات</li>
+          <li>تجديد السجلات التجارية</li>
+          <li>شطب السجلات</li>
+          <li>الاستعلام عن الأنشطة والسجلات التجارية</li>
+          <li>تقديم الشكاوى التجارية</li>
+          <li>حجز الاسم التجاري</li>
+          <li>تغيير الاسم التجاري</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🏘️ وزارة الشؤون البلدية والقروية والإسكان</h3>
+        <ul>
+          <li>إصدار رخص البلدية</li>
+          <li>تجديد رخص البلدية</li>
+          <li>إلغاء رخصة بلدية لنشاط تجاري</li>
+          <li>نقل ملكية الرخصة</li>
+          <li>إصدار شهادات السلامة</li>
+          <li>إصدار التقارير الفنية للدفاع المدني</li>
+          <li>الاستعلام عن تراخيص البناء</li>
+          <li>تقديم طلبات المساعدة السكنية</li>
+          <li>تحديث بيانات الأراضي والعقارات</li>
+          <li>الاستعلام عن الخدمات البلدية</li>
+          <li>إصدار شهادة صحية</li>
+          <li>تجديد شهادة صحية</li>
+          <li>إصدار رخصة بناء</li>
+          <li>إصدار رخصة عربة متنقلة (فود ترك)</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>💼 منصة قوى</h3>
+        <ul>
+          <li>فتح حساب قوى وتفعيله للأفراد والمؤسسات</li>
+          <li>الاشتراك في قوى</li>
+          <li>توثيق عقود العمل</li>
+          <li>تجديد عقود العمل</li>
+          <li>تصحيح المهن</li>
+          <li>تغيير المهن</li>
+          <li>إصدار التأشيرات المهنية من قوى</li>
+          <li>فك نسبة إصدار تأشيرات</li>
+          <li>تفويض التأشيرات مؤسسة</li>
+          <li>إصدار وتجديد كروت العمل</li>
+          <li>حجز مواعيد مكتب العمل</li>
+          <li>إغلاق المؤسسة</li>
+          <li>تحديث بيانات الموظفين</li>
+          <li>إضافة مواقع المنشأة</li>
+          <li>عمل الإفصاح عن التدريب</li>
+          <li>نقل الخدمات للعمالة</li>
+          <li>فك نسبة نقل</li>
+          <li>موافقة على النقل أو العقد</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🛡️ التأمينات الاجتماعية</h3>
+        <ul>
+          <li>تسجيل المشتركين السعوديين (توظيف سعودي)</li>
+          <li>فصل المشتركين</li>
+          <li>طباعة شهادات</li>
+          <li>رفع طلب دعم ساند</li>
+          <li>رفع طلب إصابة عمل</li>
+          <li>موافقة على توظيف</li>
+          <li>تعديل بيانات الأجور أو مدة الاشتراك</li>
+          <li>رفع طلب رد رصيد دائن</li>
+          <li>تعديل مشرفي المنشأة</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🤝 الضمان الاجتماعي وحساب المواطن</h3>
+        <ul>
+          <li>تقديم طلبات جديدة</li>
+          <li>تعديل البيانات</li>
+          <li>الاستعلام عن الأهلية</li>
+          <li>تقديم اعتراض</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🚛 وزارة النقل والخدمات اللوجستية</h3>
+        <ul>
+          <li>الاستعلام عن تصاريح النقل</li>
+          <li>تحديث بيانات وسائل النقل</li>
+          <li>تقديم طلبات التراخيص</li>
+          <li>إصدار بطاقة السائق</li>
+          <li>إصدار بطاقة تشغيل</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>💧 المياه والكهرباء</h3>
+        <ul>
+          <li>طلب توصيل المياه</li>
+          <li>الاستعلام عن فواتير المياه</li>
+          <li>تقديم طلب صهريج مياه</li>
+          <li>إضافة عداد</li>
+          <li>إزالة عداد</li>
+          <li>إضافة حساب</li>
+          <li>نقل ملكية العداد</li>
+          <li>الاستعلام عن الفواتير</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>💰 المنصات المالية (مدد - إيفاء - سمة)</h3>
+        <ul>
+          <li>إزالة ملاحظة حماية الأجور</li>
+          <li>فتح حساب مدد</li>
+          <li>إضافة بيانات الموظفين لتحويل الرواتب</li>
+          <li>إنشاء مسير راتب</li>
+          <li>الاستعلام عن المخالفات وتسديدها</li>
+          <li>الاشتراك في سمة وطباعة التقرير الائتماني</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🏠 العمالة المنزلية والخدمات المساندة</h3>
+        <ul>
+          <li>نقل خدمات العمالة المنزلية (مساند)</li>
+          <li>تقديم طلبات الاستقدام وإصدار تأشيرة</li>
+          <li>موافقة على النقل</li>
+          <li>فتح حساب</li>
+          <li>توثيق عقود العمالة</li>
+          <li>توثيق عقود أجير</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🏦 الخدمات المصرفية والتمويلية</h3>
+        <ul>
+          <li>طباعة الإيبان لجميع البنوك</li>
+          <li>فتح حسابات بنكية</li>
+          <li>إخلاء طرف (البنك الزراعي والعقاري وبنك التنمية)</li>
+          <li>تقديم على القروض</li>
+          <li>إنشاء بلاغ</li>
+          <li>رفع ملفات تمويل</li>
+          <li>موافقة على الكفالة</li>
+          <li>استعادة المبالغ الزائدة</li>
+          <li>رفع طلب إيقاف حسم</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🛡️ خدمات التأمين</h3>
+        <ul>
+          <li>شراء تأمين السيارات (تأميني + بي كير)</li>
+          <li>تأمين طبي لعمالة المؤسسات</li>
+          <li>رفع مطالبات الحوادث</li>
+          <li>الاستعلام عن التأمين</li>
+          <li>رفع طلب توزيع الفائض</li>
+          <li>فتح حساب نجم وطباعة تقارير الحوادث</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>⚖️ خدمات قضائية ومنازعات</h3>
+        <ul>
+          <li>رفع طلب تراضي</li>
+          <li>رفع الدعاوى في لجنة المنازعات التأمينية</li>
+          <li>رفع الدعاوى في لجنة المنازعات التمويلية</li>
+          <li>رفع قضايا أو دعاوى إدارية (معين)</li>
+          <li>رفع دعوى عمالية</li>
+          <li>رفع ملفات خاصة بالدعاوى</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🎓 خدمات الطلاب</h3>
+        <ul>
+          <li>كتابة السيرة الذاتية</li>
+          <li>البحوث والتقارير</li>
+          <li>طباعة الكتب</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🛡️ خدمات الأمن والدفاع</h3>
+        <ul>
+          <li>طباعة تعريف راتب (فارس - الحرس الوطني)</li>
+          <li>رفع طلب الدعم السكني (الحرس الوطني)</li>
+          <li>فتح ملف في مستشفى قوى الأمن</li>
+          <li>تجديد ملف وحجز مواعيد</li>
+          <li>طباعة تقارير طبية</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>♿ التأهيل الشامل وذوي الإعاقة</h3>
+        <ul>
+          <li>فتح حساب</li>
+          <li>طلب تقييم الإعاقة</li>
+          <li>طلب الإعانة المالية</li>
+          <li>طلب تأييد إصدار تأشيرة ذوي الإعاقة</li>
+          <li>إصدار مشهد إعاقة</li>
+          <li>خدمة التسهيلات المرورية لذوي الإعاقة</li>
+        </ul>
+      </div>
+
+      <div class="service-category">
+        <h3>🏪 خدمات متنوعة</h3>
+        <ul>
+          <li>إضافة عنوان وطني (سبل)</li>
+          <li>تعديل عنوان وطباعة العنوان</li>
+          <li>إصدار شهادة العمل الحر للسعوديين</li>
+          <li>عمل التقييم الذاتي للمؤسسة</li>
+          <li>رفع طلب إصدار علامة تجارية (الملكية الفكرية)</li>
+          <li>فتح حساب الزكاة والضريبة</li>
+          <li>التسجيل في ضريبة القيمة المضافة</li>
+          <li>طباعة الشهادة وتقديم الإقرارات الضريبية</li>
+          <li>تصفير الضريبة</li>
+        </ul>
+      </div>
+    </div>
+
+    <figure>
+      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=700&q=80" alt="خدمات إلكترونية متطورة" />
+      <figcaption><a href="https://unsplash.com" target="_blank">صورة من Unsplash</a></figcaption>
+    </figure>
+  </section>
+</main>
+
+<footer class="container">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4><i class="fas fa-info-circle"></i> عن المكتب</h4>
+      <p>مكتب علاء الذاهبي للخدمات الإلكترونية</p>
+      <a href="about.html">من نحن</a>
+      <a href="services.html">خدماتنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-phone"></i> التواصل</h4>
+      <p><i class="fas fa-mobile-alt"></i> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
+      <p><i class="fas fa-envelope"></i> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    <div class="footer-section">
+      <h4><i class="fas fa-link"></i> روابط مهمة</h4>
+      <a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
+      <a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+      <small>
+        <strong>جميع الحقوق محفوظة © <span id="current-year"></span> - مكتب علاء الذاهبي للخدمات الإلكترونية</strong>
+      </small>
+    </div>
+  </footer>
+
+<script>
+// تحديث السنة الحالية
+document.addEventListener('DOMContentLoaded', () => {
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+});
+</script>
 </body>
 </html>
