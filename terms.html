@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
   <style>
     body { 
       font-family: 'Tajawal', sans-serif; 
@@ -138,15 +140,8 @@
   </style>
 </head>
 <body>
-<nav class="container-fluid">
-  <ul><li><a href="index.html"><strong class="brand-logo">مكتب علاء الذاهبي</strong></a></li></ul>
-  <ul>
-    <li><a href="index.html">الرئيسية</a></li>
-    <li><a href="services.html">خدماتنا</a></li>
-    <li><a href="about.html">من نحن</a></li>
-    <li><a href="contact.html" role="button">تواصل معنا</a></li>
-  </ul>
-</nav>
+  
+    <div id="header"></div>
 
 <main class="container">
   <section>
@@ -255,9 +250,9 @@
       <h2>📞 التواصل والاستفسارات</h2>
       <p>لأي استفسارات أو توضيحات حول هذه الشروط والأحكام:</p>
       <ul>
-        <li><strong>البريد الإلكتروني:</strong> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></li>
-        <li><strong>الهاتف:</strong> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></li>
-        <li><strong>واتساب:</strong> <a href="https://wa.me/966564927083" target="_blank" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></li>
+        <li><strong>البريد الإلكتروني:</strong> <a href="mailto:saudieservice@gmail.com" style="color: var(--text-secondary); text-decoration: none;">saudieservice@gmail.com</a></li>
+        <li><strong>الهاتف:</strong> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">966564927083+</a></li>
+        <li><strong>واتساب:</strong> <a href="https://wa.me/966564927083" target="_blank" style="color: var(--text-secondary); text-decoration: none;">966564927083+</a></li>
         <li><strong>العنوان:</strong> الرياض، المملكة العربية السعودية</li>
       </ul>
     </div>
@@ -274,41 +269,11 @@
   </section>
 </main>
 
-<footer class="container">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h4><i class="fas fa-info-circle"></i> عن المكتب</h4>
-      <p>مكتب علاء الذاهبي للخدمات الإلكترونية</p>
-      <a href="about.html">من نحن</a>
-      <a href="services.html">خدماتنا</a>
-    </div>
-    <div class="footer-section">
-      <h4><i class="fas fa-phone"></i> التواصل</h4>
-      <p><i class="fas fa-mobile-alt"></i> <a href="tel:+966564927083" style="color: var(--text-secondary); text-decoration: none;">+966564927083</a></p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:althahebialaa@gmail.com" style="color: var(--text-secondary); text-decoration: none;">althahebialaa@gmail.com</a></p>
-      <a href="contact.html">تواصل معنا</a>
-    </div>
-    <div class="footer-section">
-      <h4><i class="fas fa-link"></i> روابط مهمة</h4>
-      <a href="privacy.html"><i class="fas fa-shield-alt"></i> سياسة الخصوصية</a>
-      <a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-      <small>
-        <strong>جميع الحقوق محفوظة © <span id="current-year"></span> - مكتب علاء الذاهبي للخدمات الإلكترونية</strong>
-      </small>
-    </div>
-  </footer>
+   <div id="footer"></div>
 
-<script>
-// تحديث السنة الحالية
-document.addEventListener('DOMContentLoaded', () => {
-  const yearElement = document.getElementById('current-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-});
-</script>
+  <!-- ⬇️ استدعاء السكريبت بعد إنشاء عناصر الهيدر والفوتر -->
+  <script src="load-header-footer.js"></script>
+
+
 </body>
 </html>
