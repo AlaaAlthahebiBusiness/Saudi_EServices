@@ -38,6 +38,50 @@
       </div>
     </div>
 
+<!-- قسم التواصل المطور -->
+<section aria-label="التواصل" class="cta-section">
+  <div class="container">
+    <article>
+      <hgroup style="text-align: center;">
+        <h2><i class="fas fa-envelope"></i>  ارسل لنا رسالة الآن </h2>
+        <h3> يمكنكم التواصل معنا مباشرة من خلال النموذج التالي وسنقوم بالرد عليكم في أقرب وقت ممكن </h3>
+      </hgroup>
+      
+      <div class="contact-form-container">
+        <form onsubmit="handleContactForm(event)" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" placeholder="الاسم الكامل *" required class="form-input" />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="البريد الإلكتروني *" required class="form-input" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <input type="tel" placeholder="رقم الهاتف" class="form-input" />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="الموضوع *" required class="form-input" />
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="تفاصيل الاستفسار أو الخدمة المطلوبة *" rows="5" required class="form-textarea"></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn">
+            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+          </button>
+        </form>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+
+<!--
+
+    
     <article>
       <h3>📝 أرسل لنا رسالة</h3>
       <p>يمكنكم التواصل معنا مباشرة من خلال النموذج التالي وسنقوم بالرد عليكم في أقرب وقت ممكن</p>
@@ -55,8 +99,13 @@
       </form>
     </article>
   </section>
+-->
+
+  
 </main>
 
+
+  
   <div id="footer"></div>
 
 <script>
@@ -90,6 +139,7 @@ async function handleContactForm(event) {
   }
 }
 </script>
+
   
   <script src="load-header-footer.js"></script>
 
