@@ -663,8 +663,6 @@
         padding: 1.5rem;
       }
     }
-
-
 /* --- New Sections Styling --- */
 .target-audience, .popular-services, .cta-section-container {
     background-color: var(--bg-white);
@@ -675,6 +673,39 @@
 .popular-services {
     background-color: var(--bg-light);
 }
+
+/* ✅  تحديث تصميم عناوين الأقسام لزيادة الجاذبية */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--text-primary);
+    position: relative;
+    padding-bottom: 15px;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1rem;
+}
+
 
 .grid-3, .grid-4 {
     display: grid;
@@ -706,6 +737,7 @@
     box-shadow: var(--shadow-light);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 1px solid rgba(0,0,0,0.05);
+    text-align: right; /* ضمان محاذاة النص لليمين داخل البطاقات */
 }
 
 .card:hover {
@@ -724,8 +756,17 @@
     margin-bottom: 0.5rem;
 }
 
+/* ✅ تحسين وضوح الخط في البطاقات */
+.card p {
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
 .popular-card {
     padding: 1.5rem;
+    text-align: center; /* توسيط محتوى بطاقات الخدمات الأكثر طلباً */
 }
 
 .popular-card h3 {
@@ -751,6 +792,7 @@
     border-radius: 20px;
     margin: 60px auto;
     max-width: 1200px;
+    text-align: center; /* ✅ ضمان توسيط كل المحتوى */
 }
 
 .cta-section h2 {
@@ -773,6 +815,8 @@
     font-size: 1.2rem;
     font-weight: bold;
     border: none;
+    display: inline-flex; /* لتحسين محاذاة الأيقونة مع النص */
+    align-items: center;
 }
 
 .cta-section .button:hover {
@@ -780,11 +824,12 @@
     transform: translateY(-3px) scale(1.05);
 }
 
-
-
-
-
-
+/* ✅ تلوين أيقونة الواتساب وإضافة هامش */
+.cta-section .button .fa-whatsapp {
+    color: #25D366; /* اللون الأخضر الرسمي لواتساب */
+    margin-left: 8px; /* إضافة مسافة بسيطة بين الأيقونة والنص */
+    font-size: 1.5rem; /* تكبير الأيقونة قليلاً */
+}
 
 
 
