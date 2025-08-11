@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alaaalthahebibusiness.github.io/Saudi_EServices/sitemap.xml
