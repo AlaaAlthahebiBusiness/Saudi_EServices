@@ -1,46 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خريطة الموقع - الذاهبي للحلول الرقمية</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <style>
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 0.5rem; }
+    a { color: #4e73df; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
 
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/index.html</loc>
-    <priority>1.0</priority>
-    <changefreq>daily</changefreq>
-  </url>
+  <main class="container">
+    <h1>خريطة الموقع</h1>
+    <section>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> الصفحة الرئيسية</a></li>
+        <li><a href="services.html"><i class="fas fa-cogs"></i> خدماتنا</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> من نحن</a></li>
+        <li><a href="faq.html"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> تواصل معنا</a></li>
+        <li><a href="terms.html"><i class="fas fa-file-contract"></i> الشروط والأحكام</a></li>
+        <li><a href="privacy.html"><i class="fas fa-user-shield"></i> سياسة الخصوصية</a></li>
+      </ul>
+    </section>
+  </main>
 
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/services.html</loc>
-    <priority>0.9</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/about.html</loc>
-    <priority>0.8</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/contact.html</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/faq.html</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/terms.html</loc>
-    <priority>0.6</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-  <url>
-    <loc>https://alaaalthahebibusiness.github.io/Saudi_EServices/privacy.html</loc>
-    <priority>0.6</priority>
-    <changefreq>yearly</changefreq>
-  </url>
-
-</urlset>
+  <div id="footer"></div>
+  <script src="load-header-footer.js"></script>
+</body>
+</html>
