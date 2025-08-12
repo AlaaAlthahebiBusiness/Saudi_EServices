@@ -1416,9 +1416,8 @@ function animateCounters() {
   counters.forEach(counter => {
     const originalText = counter.textContent.trim();
 
-    // تحقق إذا النص يحتوي على /
+    // حالة "رقم/نص" مثل "24/7"
     if (originalText.includes('/')) {
-      // استخراج الرقم قبل /
       const parts = originalText.split('/');
       const target = parseInt(parts[0], 10);
       let count = 0;
@@ -1430,14 +1429,32 @@ function animateCounters() {
           counter.textContent = Math.ceil(count);
           requestAnimationFrame(updateCounter);
         } else {
-          // بعد الانتهاء عرض النص الأصلي كاملًا
-          counter.textContent = originalText;
+          counter.textContent = originalText; // يرجع النص كامل
         }
       };
 
       updateCounter();
+
+    // حالة رقم مع % مثل "99%"
+    } else if (originalText.endsWith('%')) {
+      const target = parseInt(originalText.slice(0, -1), 10);
+      let count = 0;
+      const step = target / 200;
+
+      const updateCounter = () => {
+        count += step;
+        if (count < target) {
+          counter.textContent = Math.ceil(count) + '%';
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = originalText; // يرجع النص كامل
+        }
+      };
+
+      updateCounter();
+
+    // حالة رقم فقط
     } else {
-      // لو النص رقم فقط، نفذ العد طبيعي
       const target = parseInt(originalText, 10);
       let count = 0;
       const step = target / 200;
