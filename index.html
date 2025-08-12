@@ -1412,23 +1412,51 @@ document.addEventListener('DOMContentLoaded', () => {
 // تأثير الكتابة المتحركة للإحصائيات
 function animateCounters() {
   const counters = document.querySelectorAll('.stat-number');
-  
+
   counters.forEach(counter => {
-    const target = parseInt(counter.textContent);
-    const increment = target / 100;
-    let current = 0;
-    
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
-        clearInterval(timer);
-      } else {
-        counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '') + (counter.textContent.includes('%') ? '%' : '');
-      }
-    }, 20);
+    const originalText = counter.textContent.trim();
+
+    // تحقق إذا النص يحتوي على /
+    if (originalText.includes('/')) {
+      // استخراج الرقم قبل /
+      const parts = originalText.split('/');
+      const target = parseInt(parts[0], 10);
+      let count = 0;
+      const step = target / 200;
+
+      const updateCounter = () => {
+        count += step;
+        if (count < target) {
+          counter.textContent = Math.ceil(count);
+          requestAnimationFrame(updateCounter);
+        } else {
+          // بعد الانتهاء عرض النص الأصلي كاملًا
+          counter.textContent = originalText;
+        }
+      };
+
+      updateCounter();
+    } else {
+      // لو النص رقم فقط، نفذ العد طبيعي
+      const target = parseInt(originalText, 10);
+      let count = 0;
+      const step = target / 200;
+
+      const updateCounter = () => {
+        count += step;
+        if (count < target) {
+          counter.textContent = Math.ceil(count);
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target;
+        }
+      };
+
+      updateCounter();
+    }
   });
 }
+
 
 // تشغيل عداد الإحصائيات عند ظهورها
 const statsSection = document.querySelector('.stats-section');
