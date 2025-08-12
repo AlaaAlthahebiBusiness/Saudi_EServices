@@ -664,7 +664,152 @@
       }
     }
 
-    
+    /* --- Final Call to Action Section Styling --- */
+.final-cta-section {
+    background: var(--gradient-primary );
+    border-radius: 25px;
+    margin: 4rem 0;
+    padding: 4rem 2rem;
+    box-shadow: var(--shadow-heavy);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 15s linear infinite reverse;
+}
+
+.final-cta-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.final-cta-section h2 {
+    color: white;
+    font-weight: 800;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1rem;
+}
+
+.final-cta-section p {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.final-cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #25D366; /* لون واتساب الأخضر */
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.final-cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+    background: #128C7E; /* لون واتساب الأخضر الداكن عند التمرير */
+}
+
+.final-cta-button .fa-whatsapp {
+    margin-left: 10px;
+    font-size: 1.4rem;
+}
+
+
+
+    /* --- FAQ Section Styling --- */
+.faq-section {
+  padding: 4rem 0;
+  margin: 4rem 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  box-shadow: var(--shadow-heavy);
+  border: 1px solid var(--glass-border);
+}
+
+.faq-title {
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.faq-item[open] {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.faq-question {
+  padding: 1.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  position: relative;
+  outline: none;
+}
+
+/* أيقونة السهم */
+.faq-question::after {
+  content: '\f078'; /* Font Awesome chevron-down */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-question::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+}
+
 
 
 
@@ -796,22 +941,16 @@
     </div>
   </div>
 
-
-<!-- ✅ 3. Call to Action Section (دعوة لاتخاذ إجراء) -->
-<section class="cta-section scroll-reveal">
-    <article>
-      <hgroup style="text-align: center;">
+<!-- ✅ 3. Call to Action Section (النسخة النهائية والمعدلة) -->
+<section class="final-cta-section scroll-reveal">
+    <div class="container">
         <h2>هل أنت جاهز لتبدأ؟</h2>
-        <h3>دعنا نزيح عنك عبء الإجراءات الحكومية المعقدة. فريقنا جاهز لمساعدتك في إنجاز معاملاتك بكفاءة وسرعة.</h3>
-      </hgroup>
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="https://wa.me/+966564927083" target="_blank" role="button" class="hero-cta" style="animation: none; opacity: 1; background: #25D366; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4 );">
-            <i class="fab fa-whatsapp" style="margin-left: 8px; font-size: 1.2em;"></i> تواصل معنا الآن عبر واتساب
+        <p>دعنا نزيح عنك عبء الإجراءات الحكومية المعقدة. فريقنا جاهز لمساعدتك في إنجاز معاملاتك بكفاءة وسرعة.</p>
+        <a href="https://wa.me/+966564927083" target="_blank" role="button" class="final-cta-button">
+            <i class="fab fa-whatsapp"></i> تواصل معنا الآن عبر واتساب
         </a>
-      </div>
-    </article>
+    </div>
 </section>
-
 
 
 
@@ -840,22 +979,22 @@
 
 
 </main>
-
-<section class="container scroll-reveal" style="margin-top: 4rem;">
-  <h2 style="text-align: center; color: var(--text-primary); font-weight: 700; margin-bottom: 2rem; font-size: 2.2rem;">
-    ❓ الأسئلة الشائعة
-  </h2>
-  <div>
-    <details>
-      <summary>كيف أطلب خدمة منكم؟</summary>
-      <p>يمكنك التواصل عبر نموذج الاتصال أو واتساب وسنقوم بخدمتك فورًا.</p>
-    </details>
-    <details>
-      <summary>هل خدماتكم متاحة دوليًا؟</summary>
-      <p>نعم، نقدم خدماتنا عبر الإنترنت لأي عميل من أي مكان.</p>
-    </details>
-    <p style="text-align:center; margin-top: 1rem;">
-      <a href="faq.html" role="button">المزيد من الأسئلة الشائعة 📖</a>
+<!-- ✅ قسم الأسئلة الشائعة (النسخة النهائية والمعدلة) -->
+<section class="faq-section scroll-reveal">
+  <div class="container">
+    <h2 class="faq-title">❓ الأسئلة الشائعة</h2>
+    <div class="faq-container">
+      <details class="faq-item">
+        <summary class="faq-question">كيف أطلب خدمة منكم؟</summary>
+        <p class="faq-answer">يمكنك التواصل عبر نموذج الاتصال أو واتساب وسنقوم بخدمتك فورًا.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">هل خدماتكم متاحة دوليًا؟</summary>
+        <p class="faq-answer">نعم، نقدم خدماتنا عبر الإنترنت لأي عميل من أي مكان.</p>
+      </details>
+    </div>
+    <p style="text-align:center; margin-top: 2rem;">
+      <a href="faq.html" role="button" class="hero-cta" style="animation: none; opacity: 1;">المزيد من الأسئلة الشائعة 📖</a>
     </p>
   </div>
 </section>
