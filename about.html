@@ -142,7 +142,7 @@
     opacity: 0.9;
 }
 
-/* ✅ Call to Action Section - Final Corrected Styling */
+/* ✅ Call to Action Section - The ABSOLUTE FINAL Styling */
 .final-cta-section {
     background: var(--gradient-primary);
     border-radius: 25px;
@@ -150,10 +150,9 @@
     padding: 4rem 2rem;
     box-shadow: var(--shadow-heavy);
     text-align: center;
-    position: relative; /* For pseudo-element */
+    position: relative;
     overflow: hidden;
 }
-/* Adding a subtle overlay to improve text contrast */
 .final-cta-section::before {
     content: '';
     position: absolute;
@@ -161,26 +160,27 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3); /* Increased overlay opacity */
     z-index: 1;
 }
-/* Ensure content is above the overlay */
 .final-cta-section .cta-content {
     position: relative;
     z-index: 2;
 }
 .final-cta-section h2 {
-    color: #ffffff; /* Explicit white color */
+    color: #FFFFFF; /* Pure, solid white */
     font-size: 2.2rem;
+    font-weight: 800; /* Bolder for clarity */
     margin-bottom: 1rem;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+    text-shadow: none; /* Removed shadow */
 }
 .final-cta-section p {
-    color: rgba(255, 255, 255, 0.95); /* High-opacity white */
+    color: #FFFFFF; /* Pure, solid white */
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto 2rem auto;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Shadow for readability */
+    text-shadow: none; /* Removed shadow */
+    opacity: 0.9; /* Slight opacity for softness */
 }
 .whatsapp-button {
     background: #25D366;
@@ -195,12 +195,12 @@
     gap: 0.8rem;
     transition: all 0.3s ease;
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-    border: none; /* Ensure no default border */
+    border: none;
 }
 .whatsapp-button:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-    background: #128C7E; /* Darker green on hover */
+    background: #128C7E;
 }
 .whatsapp-button i {
     font-size: 1.5rem;
@@ -216,6 +216,7 @@
     }
 }
 /* --- About Us Page Specific Styling (End) --- */
+
 
       </style>
 
