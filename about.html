@@ -1,371 +1,240 @@
-
+<!-- ✅ About Us Page - New Design (Start) -->
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> من نحن -  الذاهبي للحلول الرقمية </title>
+  <title>من نحن - الذاهبي للحلول الرقمية</title>
+  <meta name="description" content="تعرف على قصة الذاهبي للحلول الرقمية، رؤيتنا، ومهمتنا في تبسيط عالم الخدمات الرقمية. اكتشف لماذا يثق بنا مئات العملاء لإنجاز معاملاتهم.">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    :root {
-      --primary-color: #667eea;
-      --secondary-color: #764ba2;
-      --accent-color: #f093fb;
-      --text-primary: #2d3748;
-      --text-secondary: #4a5568;
-      --glass-bg: rgba(255, 255, 255, 0.98);
-      --glass-border: rgba(255, 255, 255, 0.2);
-      --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.37);
-      --shadow-heavy: 0 20px 60px rgba(31, 38, 135, 0.5);
-      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+    /* --- About Us Page Specific Styling (Start ) --- */
+    .about-hero {
+        text-align: center;
+        padding: 2rem 0;
+    }
+    .about-hero h1 {
+        font-size: 2.8rem;
+        font-weight: 900;
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+    }
+    .about-hero .story-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        max-width: 800px;
+        margin: 0 auto 3rem auto;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .vision-mission-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+    .vm-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        padding: 2rem;
+        border-radius: 20px;
+        border-left: 5px solid var(--primary-color);
+        box-shadow: var(--shadow-light);
+        transition: all 0.3s ease;
+    }
+    .vm-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-heavy);
+    }
+    .vm-card h3 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+    .vm-card p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
     }
 
-    body { 
-      font-family: 'Cairo', 'Tajawal', sans-serif; 
-      direction: rtl; 
-      background: var(--gradient-bg);
-      min-height: 100vh;
-      background-attachment: fixed;
-      overflow-x: hidden;
-      position: relative;
+    .why-us-section {
+        padding: 4rem 0;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 3rem;
+    }
+    .why-us-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    .why-us-item {
+        text-align: center;
+        padding: 2rem;
+    }
+    .why-us-item .icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+    .why-us-item h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+    }
+    .why-us-item p {
+        color: var(--text-secondary);
+        line-height: 1.7;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-      animation: backgroundMove 20s ease-in-out infinite;
-      z-index: -1;
+    .stats-section {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 25px;
+        margin: 4rem 0;
+        box-shadow: var(--shadow-heavy);
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        text-align: center;
+    }
+    .stat-item .stat-number {
+        font-size: 2.5rem;
+        font-weight: 900;
+        display: block;
+    }
+    .stat-item .stat-label {
+        font-size: 1rem;
+        font-weight: 500;
+        opacity: 0.9;
     }
 
-    @keyframes backgroundMove {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(1.1); }
+    .cta-section {
+        text-align: center;
+        padding: 4rem 0;
     }
-
-    nav {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      box-shadow: var(--shadow-light);
-      border-bottom: 1px solid var(--glass-border);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
+    .cta-section h2 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
     }
-
-    nav:hover {
-      background: rgba(255, 255, 255, 0.99);
-      box-shadow: var(--shadow-heavy);
-    }
-
-    .brand-logo {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 800;
-      font-size: 1.4rem;
-      animation: logoGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes logoGlow {
-      0%, 100% { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
-      50% { filter: drop-shadow(0 0 15px rgba(102, 126, 234, 0.8)); }
-    }
-
-    nav ul li a {
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    nav ul li a::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gradient-primary);
-      transition: width 0.3s ease;
-    }
-
-    nav ul li a:hover::before {
-      width: 100%;
-    }
-
-    main { 
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border-radius: 25px;
-      padding: 4rem;
-      margin: 3rem auto;
-      box-shadow: var(--shadow-heavy);
-      border: 1px solid var(--glass-border);
-      position: relative;
-      overflow: hidden;
-      animation: slideUp 1s ease-out;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(50px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    main::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-      animation: rotate 20s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    h1, h2, h3, p { text-align: right; }
-    
-    main h2 {
-      color: var(--text-primary);
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      animation: textGlow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes textGlow {
-      from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.3)); }
-      to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6)); }
-    }
-
-    main > section > p {
-      color: var(--text-secondary);
-      font-weight: 500;
-      font-size: 1.2rem;
-      line-height: 1.8;
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .vision-mission {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-      padding: 2.5rem;
-      border-radius: 20px;
-      margin: 2rem 0;
-      border-right: 5px solid var(--primary-color);
-      box-shadow: var(--shadow-light);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border: 1px solid rgba(78, 115, 223, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .vision-mission::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--gradient-primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .vision-mission:hover::before {
-      transform: scaleX(1);
-    }
-
-    .vision-mission:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-heavy);
-      background: rgba(255, 255, 255, 0.99);
-    }
-
-    .vision-mission h3 {
-      color: var(--text-primary);
-      font-weight: 700;
-      font-size: 1.6rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .vision-mission p {
-      color: var(--text-secondary);
-      font-weight: 500;
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-
-    .vision-mission ul li {
-      color: var(--text-secondary);
-      font-weight: 500;
-      margin: 1rem 0;
-      padding: 0.8rem;
-      background: rgba(102, 126, 234, 0.05);
-      border-radius: 10px;
-      font-size: 1.05rem;
-      transition: all 0.3s ease;
-    }
-
-    .vision-mission ul li:hover {
-      background: rgba(102, 126, 234, 0.1);
-      transform: translateX(-5px);
-    }
-
-    figure {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    figure img {
-      border-radius: 20px;
-      box-shadow: var(--shadow-light);
-      transition: all 0.3s ease;
-    }
-
-    figure img:hover {
-      transform: scale(1.05);
-      box-shadow: var(--shadow-heavy);
-    }
-
-    footer {
-      margin-top: 4rem;
-      padding: 3rem 0;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      box-shadow: var(--shadow-light);
-      border: 1px solid var(--glass-border);
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      color: var(--text-primary);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-
-    .footer-section p, .footer-section a {
-      color: var(--text-secondary);
-      font-weight: 500;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-      display: block;
-      transition: all 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--primary-color);
-      transform: translateX(-5px);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(102, 126, 234, 0.2);
-    }
-
-    .footer-bottom small {
-      color: var(--text-primary);
-      font-weight: 500;
-    }
-
-    .footer-bottom a {
-      color: var(--primary-color);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .footer-bottom a:hover {
-      color: var(--secondary-color);
-      text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    .cta-section p {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
     }
 
     @media (max-width: 768px) {
-      main { padding: 2rem; }
-      main h2 { font-size: 2rem; }
-      .footer-content { grid-template-columns: 1fr; }
+        .vision-mission-grid {
+            grid-template-columns: 1fr;
+        }
     }
+    /* --- About Us Page Specific Styling (End) --- */
   </style>
 </head>
 <body>
+  
   <div id="header"></div>
 
-<main class="container">
-  <section>
-    <h2>من نحن</h2>
-    <p> الذاهبي للحلول الرقمية هو مكتب رائد ومتخصص في تقديم الخدمات الحكومية الرقمية والتسويقية والاستشارية، والطلابية والترجمة المعتمدة باستخدام أحدث التقنيات وأعلى معايير الجودة والاحترافية.</p>
+  <main class="container">
     
-    <div class="vision-mission">
-      <h3>🎯 رؤيتنا</h3>
-      <p>أن نكون الخيار الأول والمرجع الموثوق للعملاء في الحصول على خدمات إلكترونية متطورة وسريعة وآمنة.</p>
-    </div>
-    
-    <div class="vision-mission">
-      <h3>🚀 مهمتنا</h3>
-      <p>تسهيل وتبسيط إجراءات العملاء الرقمية وتوفير الوقت والجهد من خلال فريق متخصص ومدرب على أحدث التقنيات والأساليب الحديثة.</p>
-    </div>
+    <!-- Hero Section with Story -->
+    <section class="about-hero">
+      <h1>قصتنا: من فكرة إلى ثقة</h1>
+      <p class="story-text">بدأت رحلتنا من ملاحظة بسيطة: الإجراءات الرقمية قد تكون معقدة ومحبطة للكثيرين. من هذا المنطلق، تأسس مكتب الذاهبي للحلول الرقمية ليس ليكون مجرد مقدم خدمة، بل ليكون الشريك الموثوق الذي يزيل عنك هذا العبء. نحن نؤمن بأن التكنولوجيا يجب أن تخدم الإنسان، ومهمتنا هي بناء الجسر بينك وبين عالم الخدمات الرقمية المعقد، لنجعل حياتك وأعمالك أسهل وأكثر انسيابية.</p>
+    </section>
 
-    <div class="vision-mission">
-      <h3>⭐ قيمنا</h3>
-      <ul>
-        <li>الجودة والإتقان في تقديم الخدمات</li>
-        <li>السرعة والدقة في الإنجاز</li>
-        <li>السرية والأمان في التعامل مع البيانات</li>
-        <li>الشفافية والوضوح في التعامل</li>
-      </ul>
-    </div>
+    <!-- Vision and Mission Section -->
+    <section class="vision-mission-grid">
+      <div class="vm-card">
+        <h3><i class="fas fa-eye"></i> رؤيتنا</h3>
+        <p>أن نكون الخيار الأول والمرجع الموثوق للعملاء في الحصول على خدمات إلكترونية متطورة وسريعة وآمنة.</p>
+      </div>
+      <div class="vm-card">
+        <h3><i class="fas fa-rocket"></i> مهمتنا</h3>
+        <p>تسهيل وتبسيط إجراءات العملاء الرقمية وتوفير الوقت والجهد من خلال فريق متخصص ومدرب على أحدث التقنيات والأساليب الحديثة.</p>
+      </div>
+    </section>
 
-    <figure>
-      <img src="https://images.unsplash.com/photo-1555209183-8facf96a4349?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="فريق العمل المتخصص" />
-      <figcaption><a href="contact.html" target="_blank"> ابق على اتصال بنا </a></figcaption>
-    </figure>
-  </section>
-</main>
-    <!-- ⬇️ اضافة الفوتر -->
+    <!-- Why Us Section -->
+    <section class="why-us-section">
+      <h2 class="section-title">لماذا يثق بنا عملاؤنا؟</h2>
+      <div class="why-us-grid">
+        <div class="why-us-item">
+          <div class="icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>الأمان أولاً</h3>
+          <p>نتعامل مع بياناتك كأمانة مطلقة، ونطبق أعلى معايير السرية والأمان.</p>
+        </div>
+        <div class="why-us-item">
+          <div class="icon"><i class="fas fa-bolt"></i></div>
+          <h3>إنجاز يسبق توقعاتك</h3>
+          <p>نحن لا ننجز العمل بسرعة فقط، بل بدقة تضمن صحته من المرة الأولى.</p>
+        </div>
+        <div class="why-us-item">
+          <div class="icon"><i class="fas fa-handshake"></i></div>
+          <h3>شفافية كاملة</h3>
+          <p>لا توجد رسوم خفية أو مفاجآت. نوضح لك كل التفاصيل والتكاليف قبل البدء.</p>
+        </div>
+        <div class="why-us-item">
+          <div class="icon"><i class="fas fa-headset"></i></div>
+          <h3>دعم لا ينقطع</h3>
+          <p>نحن معك خطوة بخطوة، ونجيب على استفساراتك بصدر رحب حتى بعد إنجاز الخدمة.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">عميل راضٍ</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2000+</span>
+          <span class="stat-label">معاملة منجزة</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">99%</span>
+          <span class="stat-label">معدل الرضا</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">سنوات من الخبرة</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <h2>هل أنت جاهز لتبدأ رحلة سلسة في عالم الخدمات الرقمية؟</h2>
+      <p>فريقنا ينتظر لمساعدتك في تحقيق أهدافك بكل سهولة واحترافية.</p>
+      <a href="contact.html" role="button" class="hero-cta" style="animation: none; opacity: 1;">تواصل معنا الآن</a>
+    </section>
+
+  </main>
 
   <div id="footer"></div>
 
-  <!-- ⬇️ استدعاء السكريبت بعد إنشاء عناصر الهيدر والفوتر -->
   <script src="load-header-footer.js"></script>
 </body>
 </html>
+<!-- ✅ About Us Page - New Design (End) -->
