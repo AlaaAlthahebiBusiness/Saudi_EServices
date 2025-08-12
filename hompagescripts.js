@@ -4,7 +4,6 @@
   <i class="fas fa-chevron-up"></i>
 </button>
 
-<script>
 // تأثيرات التمرير
 function handleScrollAnimations() {
   const reveals = document.querySelectorAll('.scroll-reveal');
@@ -275,4 +274,3 @@ window.addEventListener('scroll', () => {
     statsAnimated = true;
   }
 });
-</script>
