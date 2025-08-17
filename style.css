@@ -1534,3 +1534,28 @@ footer {
 }
 /* --- Responsive Adjustments for Homepage (End) --- */
 
+
+
+/* === Fix Contact Form Title and Submit Button === */
+.cta-section h2,
+.final-cta-section h2 {
+  color: var(--text-primary, #2d3748);
+  font-weight: 700;
+  text-align: center;
+}
+
+.form-submit-btn {
+  background: var(--gradient-primary);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form-submit-btn:hover {
+  background: var(--gradient-secondary);
+  color: #fff !important;
+  transform: scale(1.03);
+}
