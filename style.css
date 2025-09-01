@@ -1166,15 +1166,29 @@ footer {
 
 
 /* --- Stats Section Styling (Start) --- */
+/* الحاوية الجديدة التي ستحمل الخلفية */
+.stats-container {
+  /* استخدم صورة خلفية أو لون متدرج هنا */
+  background-image: url('path/to/your/background-image.jpg'); /* <-- غيّر هذا المسار */
+  background-size: cover;
+  background-position: center;
+  padding: 5rem 2rem; /* مساحة لرؤية الخلفية حول العنصر الزجاجي */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* الكود الخاص بك مع تعديل بسيط */
 .stats-section {
- background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px); /* دعم سفاري */
+  background: rgba(255, 255, 255, 0.15); /* خلفية بيضاء شبه شفافة لتعزيز التأثير */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* لدعم متصفح Safari */
   border-radius: 25px;
   padding: 3rem;
-  margin: 4rem 0;
-  box-shadow: 0 0 30px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* إضافة حدود اختيارية */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* ظل لتعزيز العمق */
+  max-width: 900px; /* تحديد عرض أقصى للحفاظ على التصميم */
+  width: 95%;
 }
 
 .stats-grid {
