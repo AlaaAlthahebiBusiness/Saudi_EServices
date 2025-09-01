@@ -1167,13 +1167,14 @@ footer {
 
 /* --- Stats Section Styling (Start) --- */
 .stats-section {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
+ background: rgba(255, 255, 255, 0.1); /* خلفية شفافة */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px); /* دعم سفاري */
   border-radius: 25px;
   padding: 3rem;
   margin: 4rem 0;
-  box-shadow: var(--shadow-heavy);
-  border: 1px solid var(--glass-border);
+  box-shadow: 0 0 30px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .stats-grid {
