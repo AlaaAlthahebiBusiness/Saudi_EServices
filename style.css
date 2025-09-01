@@ -1186,33 +1186,33 @@ footer {
 .stat-item {
   padding: 1.5rem;
   border-radius: 15px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 100%);
+  /* 🎯 التعديل: بدلنا الخلفية لتكون أغمق قليلاً عشان يوضح النص */
   transition: all 0.3s ease;
 }
 
 .stat-item:hover {
   transform: translateY(-5px);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.25) 100%);
+  /* 🎯 التعديل: نفس الشي عند الهوفر، أغمق */
 }
 
 .stat-number {
   font-size: 2.5rem;
   font-weight: 900;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff; /* 🎯 التعديل: بدلنا الـ gradient إلى لون أبيض صريح */
+  text-shadow: 0 0 6px rgba(0,0,0,0.6); /* 🎯 التعديل: أضفنا ظل لتحسين الوضوح */
   display: block;
   margin-bottom: 0.5rem;
 }
 
 .stat-label {
-  color: var(--text-secondary);
+  color: #f1f1f1; /* 🎯 التعديل: بدلنا النص للون أبيض فاتح */
   font-weight: 600;
   font-size: 1rem;
+  text-shadow: 0 0 4px rgba(0,0,0,0.5); /* 🎯 التعديل: ظل خفيف للنص */
 }
 /* --- Stats Section Styling (End) --- */
-
 
 /* --- General Homepage Sections Styling (Start) --- */
 .section-title {
