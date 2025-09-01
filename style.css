@@ -1166,7 +1166,7 @@ footer {
 
 
 /* --- Stats Section Styling (Start) --- */
-/* الحاوية الجديدة التي ستحمل الخلفية */
+/* الحاوية الجديدة التي ستحمل الخلفية 
 .stats-container {
   /* استخدم صورة خلفية أو لون متدرج هنا */
   background-image: url('path/to/your/background-image.jpg'); /* <-- غيّر هذا المسار */
@@ -1177,7 +1177,7 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
+*/
 /* الكود الخاص بك مع تعديل بسيط */
 .stats-section {
   background: rgba(255, 255, 255, 0.15); /* خلفية بيضاء شبه شفافة لتعزيز التأثير */
