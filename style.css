@@ -1188,7 +1188,7 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.2); /* إضافة حدود اختيارية */
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* ظل لتعزيز العمق */
   max-width: 900px; /* تحديد عرض أقصى للحفاظ على التصميم */
-  width: 95%;
+  width: 100%;
 }
 
 .stats-grid {
